@@ -1,0 +1,75 @@
+/* Buttons */
+.btn,
+.btn-sm {
+  @apply inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all duration-500 ease-out;
+}
+
+.btn {
+  @apply px-6 py-4;
+}
+
+.btn-sm {
+  @apply px-4 py-2.5;
+}
+
+.btn-primary {
+  @apply bg-brand-primary text-white uppercase tracking-[0.3em] rounded-none hover:bg-red-800 transition duration-500 ease-out;
+}
+
+.btn-secondary {
+  @apply border border-brand-border bg-white text-brand-charcoal uppercase tracking-[0.25em] rounded-none hover:bg-brand-cream transition duration-500 ease-out;
+}
+
+.card-luxury {
+  @apply bg-brand-light border border-brand-border shadow-soft rounded-luxury;
+}
+
+.gold-divider {
+  @apply h-px w-16 bg-gold mx-auto;
+}
+
+.section-subtitle {
+  @apply uppercase tracking-[0.5em] text-brand-primary text-sm;
+}
+
+/* Forms */
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
+
+.form-input,
+.form-textarea,
+.form-multiselect,
+.form-select,
+.form-checkbox,
+.form-radio {
+  @apply border border-brand-border bg-white focus:border-brand-secondary focus:ring-0 focus:ring-offset-0;
+}
+
+.form-input,
+.form-textarea,
+.form-multiselect,
+.form-select {
+  @apply rounded-lg px-4 py-2.5 text-sm text-brand-charcoal;
+}
+
+.form-input,
+.form-textarea {
+  @apply placeholder-brand-muted/60;
+}
+
+.form-select {
+  @apply pr-10;
+}
+
+.form-checkbox,
+.form-radio {
+  @apply text-brand-primary;
+}
+
+.form-checkbox {
+  @apply rounded-xs;
+}

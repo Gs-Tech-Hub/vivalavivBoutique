@@ -1,0 +1,97 @@
+@import 'tailwindcss';
+
+/* Additional styles */
+@import './additional-styles/utility-patterns.css' layer(components);
+@import './additional-styles/theme.css';
+
+@plugin "@tailwindcss/forms" {
+  strategy: base;
+}
+
+@theme {
+  --font-heading: var(--font-cormorant), "Playfair Display", serif;
+  --font-body: var(--font-montserrat), "Inter", sans-serif;
+  --font-script: var(--font-great-vibes), cursive;
+
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: 1.5384;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.5715;
+  --text-base: 0.9375rem;
+  --text-base--line-height: 1.75;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.75;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 1.5;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 1.415;
+  --text-3xl: 1.75rem;
+  --text-3xl--line-height: 1.3571;
+  --text-4xl: 2.5rem;
+  --text-4xl--line-height: 1.1;
+  --text-5xl: 3.5rem;
+  --text-5xl--line-height: 1;
+  --text-6xl: 4rem;
+  --text-6xl--line-height: 1;
+  --text-7xl: 4.5rem;
+  --text-7xl--line-height: 1;
+
+  --color-brand-primary: #B61E24;
+  --color-brand-secondary: #CDA349;
+  --color-brand-accent: #E8A4B8;
+  --color-brand-cream: #FFF8F2;
+  --color-brand-ivory: #FAF6F0;
+  --color-brand-marble: #F5EFE8;
+  --color-brand-charcoal: #2C2C2C;
+  --color-brand-text: #474747;
+  --color-brand-muted: #666666;
+  --color-brand-light: #FDFCFB;
+  --color-brand-border: #E9DDD2;
+
+  --shadow-luxury: 0 12px 40px rgba(181, 30, 36, 0.12);
+  --shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.06);
+
+  --radius-luxury: 18px;
+
+  --background-image-marble: radial-gradient(ellipse at 20% 30%, rgba(232, 164, 184, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(205, 163, 73, 0.06) 0%, transparent 45%),
+    linear-gradient(180deg, #FAF6F0 0%, #FFF8F2 50%, #F5EFE8 100%);
+  --background-image-gold: linear-gradient(135deg, #F7E7A1, #CDA349, #F7E7A1);
+
+  --animate-fade-up: fade-up 0.5s ease-out forwards;
+  --animate-fade-in: fade-in 0.5s ease-out forwards;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-brand-border, currentColor);
+  }
+
+  body {
+    @apply bg-brand-cream font-body text-brand-text antialiased;
+  }
+}
