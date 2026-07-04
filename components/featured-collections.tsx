@@ -81,6 +81,14 @@ export default async function FeaturedCollections() {
                         {formatPrice(item.price?.toString())}
                       </p>
                     )}
+                    <a
+                      href={`https://wa.me/?text=Hi! I'm interested in the ${item.name} collection. Can you tell me more details?`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-primary mt-4 w-full text-center text-sm"
+                    >
+                      Shop on WhatsApp
+                    </a>
                   </div>
                 </article>
               );

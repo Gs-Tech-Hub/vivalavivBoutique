@@ -25,5 +25,19 @@ export function formatPrice(price: number | string | null | undefined) {
 
 export function getImageUrl(fileId?: string | null) {
   if (!fileId) return null;
+
+  if (
+    fileId.startsWith("/") ||
+    fileId.startsWith("http://") ||
+    fileId.startsWith("https://") ||
+    fileId.startsWith("data:")
+  ) {
+    return fileId;
+  }
+
+  if (fileId.startsWith("images/")) {
+    return `/${fileId}`;
+  }
+
   return `/api/images/${fileId}`;
 }

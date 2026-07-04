@@ -72,16 +72,18 @@ model CollectionItem {
 }
 
 model Branch {
-  id          String  @id @default(cuid())
-  name        String
-  address     String
-  phone       String?
-  email       String?
-  latitude    Float?
-  longitude   Float?
-  mapEmbedUrl String?
-  sortOrder   Int     @default(0)
-  published   Boolean @default(true)
+  id            String  @id @default(cuid())
+  name          String
+  address       String
+  phone         String?
+  email         String?
+  latitude      Float?
+  longitude     Float?
+  mapEmbedUrl   String?
+  imageFileId   String?
+  imageFileName String?
+  sortOrder     Int     @default(0)
+  published     Boolean @default(true)
 }
 
 model Review {

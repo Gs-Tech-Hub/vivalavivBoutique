@@ -4,7 +4,9 @@ export const metadata = {
     "Find VivaLaViv Boutique locations, contact details, and directions.",
 };
 
+import Image from "next/image";
 import { getPublishedBranches } from "@/lib/queries";
+import { getImageUrl } from "@/lib/utils";
 
 export default async function LocationsPage() {
   const branches = await getPublishedBranches();
@@ -55,7 +57,23 @@ export default async function LocationsPage() {
                       <h2 className="font-heading text-2xl font-light uppercase tracking-wider text-brand-charcoal">
                         {branch.name}
                       </h2>
-                      <p className="mt-4 leading-relaxed text-brand-text">{branch.address}</p>
+                      {branch.imageFileId ? (
+                        <div className="mt-6 overflow-hidden rounded-3xl bg-brand-marble">
+                          {(() => {
+                            const imageUrl = getImageUrl(branch.imageFileId);
+                            return imageUrl ? (
+                              <Image
+                                src={imageUrl}
+                                alt={`${branch.name} location`}
+                                width={1200}
+                                height={800}
+                                className="h-auto w-full object-cover"
+                              />
+                            ) : null;
+                          })()}
+                        </div>
+                      ) : null}
+                      <p className="mt-6 leading-relaxed text-brand-text">{branch.address}</p>
                       <div className="mt-6 space-y-2 text-sm text-brand-muted">
                         {branch.phone && (
                           <p>

@@ -1,85 +1,84 @@
 import Link from "next/link";
 import Image from "next/image";
-import HeroImage from "@/public/images/hero-image-01.jpg";
+import HeroImage from "@/public/images/fashion-woman-leaning-on-car.jpg";
 
 export default function HeroHome() {
   return (
-    <section className="relative min-h-[85vh] bg-brand-cream bg-marble">
-      <div
-        className="pointer-events-none absolute inset-0 overflow-hidden"
-        aria-hidden="true"
+    <section className="relative overflow-hidden bg-marble">
+  {/* Background */}
+  <div className="absolute inset-0">
+    <Image
+      src={HeroImage}
+      alt="Model wearing Viva La Viv luxury fashion"
+      fill
+      priority
+      sizes="100vw"
+      className="object-cover object-[50%_20%]"
+    />
+
+    <div className="absolute inset-0 bg-gradient-to-r from-brand-charcoal/70 via-brand-charcoal/35 to-brand-charcoal/10" />
+  </div>
+
+  <div className="relative mx-auto flex min-h-[75svh] max-w-7xl items-center px-6 lg:px-10">
+    <div className="max-w-md rounded-3xl border border-white/10 bg-white/40 p-8 backdrop-blur-sm lg:p-10">
+      <span
+        className="section-subtitle block text-brand-charcoal"
+        data-aos="fade-up"
       >
-        <div className="absolute -right-8 top-20 h-24 w-24 rotate-12 rounded-full bg-brand-accent/20 blur-2xl" />
-        <div className="absolute bottom-32 left-10 h-32 w-32 -rotate-6 rounded-full bg-brand-secondary/10 blur-3xl" />
-        <div className="absolute right-1/4 top-1/3 h-3 w-3 rounded-full bg-brand-accent/40" />
-        <div className="absolute left-1/4 top-1/2 h-2 w-2 rounded-full bg-brand-accent/30" />
-        <div className="absolute bottom-1/4 right-1/3 h-4 w-4 rounded-full bg-brand-accent/25" />
-      </div>
+        Established Luxury
+      </span>
 
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="flex flex-col items-center py-24 text-center md:py-32">
-          <p
-            className="section-subtitle mb-6"
-            data-aos="fade-up"
-          >
-            Established Luxury
-          </p>
+      <h1
+        className="mt-3 font-heading text-4xl font-light uppercase tracking-[0.18em] text-brand-charcoal md:text-5xl"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        VIV LA VIV
+      </h1>
 
-          <h1
-            className="font-heading text-5xl font-light uppercase tracking-widest text-brand-charcoal md:text-7xl"
-            data-aos="fade-up"
-            data-aos-delay={100}
-          >
-            VIV LA VIV
-          </h1>
+      <div
+        aria-hidden="true"
+        className="my-5 h-px w-12 bg-gold"
+      />
 
-          <div className="my-8 h-px w-16 bg-gold" data-aos="fade-up" data-aos-delay={150} />
+      <p
+        className="font-script text-2xl italic text-brand-text"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        "Your Fashion Is Your IQ"
+      </p>
 
-          <p
-            className="font-script text-2xl italic text-brand-text md:text-3xl"
-            data-aos="fade-up"
-            data-aos-delay={200}
-          >
-            &ldquo;Your Fashion Is Your IQ&rdquo;
-          </p>
+      <p
+        className="mt-5 text-sm leading-7 text-brand-muted md:text-base"
+        data-aos="fade-up"
+        data-aos-delay="300"
+      >
+        Discover curated luxury collections, timeless designs, and exceptional
+        craftsmanship that elevate every occasion.
+      </p>
 
-          <p
-            className="mx-auto mt-8 max-w-2xl font-body text-base leading-8 text-brand-muted md:text-lg"
-            data-aos="fade-up"
-            data-aos-delay={300}
-          >
-            Discover handpicked collections, visit our boutique locations, and
-            find pieces that celebrate your unique style.
-          </p>
-
-          <div
-            className="mt-12 flex flex-col gap-4 sm:flex-row sm:justify-center"
-            data-aos="fade-up"
-            data-aos-delay={400}
-          >
-            <Link className="btn btn-primary" href="/collections">
-              Browse Collections
-            </Link>
-            <Link className="btn btn-secondary" href="/locations">
-              Find a Location
-            </Link>
-          </div>
-        </div>
-
-        <div
-          className="relative overflow-hidden rounded-luxury border border-brand-border shadow-soft"
-          data-aos="fade-up"
-          data-aos-delay={500}
+      <div
+        className="mt-8 flex flex-wrap gap-4"
+        data-aos="fade-up"
+        data-aos-delay="400"
+      >
+        <Link
+          href="/collections"
+          className="btn btn-primary min-w-[170px]"
         >
-          <Image
-            src={HeroImage}
-            alt="VivaLaViv Boutique interior"
-            className="h-[280px] w-full object-cover md:h-[420px]"
-            priority
-          />
-          <div className="absolute inset-0 bg-linear-to-t from-brand-charcoal/20 via-transparent to-transparent" />
-        </div>
+          Browse Collections
+        </Link>
+
+        <Link
+          href="/locations"
+          className="btn btn-secondary min-w-[170px]"
+        >
+          Find a Location
+        </Link>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
   );
 }

@@ -7,6 +7,7 @@ import {
 } from "next/font/google";
 
 import Header from "@/components/ui/header";
+import WhatsAppButton from "@/components/ui/whatsapp-button";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -52,6 +53,7 @@ export default function RootLayout({
           <Header />
           {children}
         </div>
+        <WhatsAppButton />
       </body>
     </html>
   );
