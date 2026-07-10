@@ -70,7 +70,7 @@ async function main() {
   await prisma.branch.createMany({
     data: [
       {
-        name: "VivaLaViv Head Office",
+        name: "Viv La Viv Head Office",
         address: "1st Ugbor, Benin City, Edo State, Nigeria",
         phone: "(212) 555-0142",
         email: "downtown@vivalaviv.com",
@@ -83,7 +83,7 @@ async function main() {
         sortOrder: 1,
       },
       {
-        name: "VivaLaViv Shoprite",
+        name: "Viv La Viv Shoprite",
         address: "Edo Mall, Benin City, Edo State, Nigeria",
         phone: "(310) 555-0198",
         email: "westside@vivalaviv.com",
@@ -96,7 +96,7 @@ async function main() {
         sortOrder: 2,
       },
       {
-        name: "VivaLaViv Ugbowo",
+        name: "Viv La Viv Ugbowo",
         address: "Ugbowo, Benin City, Edo State, Nigeria",
         phone: "(312) 555-0167",
         email: "midtown@vivalaviv.com",
@@ -124,7 +124,7 @@ async function main() {
         authorName: "Jennifer L.",
         rating: 5,
         content:
-          "VivaLaViv has become my go-to boutique. The quality of every item is outstanding and the styling advice is invaluable.",
+          "Viva La Viv has become my go-to boutique. The quality of every item is outstanding and the styling advice is invaluable.",
         sortOrder: 2,
       },
       {

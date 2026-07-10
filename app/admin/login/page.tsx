@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { signIn } from "@/lib/auth";
+import Brand from "@/components/ui/brand";
 
 export const metadata = {
   title: "Admin Login",
@@ -14,7 +15,7 @@ export default function AdminLoginPage({
     <section className="flex min-h-screen items-center justify-center px-4">
       <div className="card-luxury w-full max-w-md p-8 shadow-luxury">
         <div className="pb-8 text-center">
-          <p className="section-subtitle mb-4">VIV LA VIV Admin</p>
+          <p className="section-subtitle mb-4"><Brand size="sm" /> Admin</p>
           <h1 className="font-heading text-3xl font-light uppercase tracking-widest text-brand-charcoal">
             Sign in to manage
           </h1>

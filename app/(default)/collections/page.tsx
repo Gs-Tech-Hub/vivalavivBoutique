@@ -1,7 +1,7 @@
 export const metadata = {
   title: "Collections",
   description:
-    "Browse VivaLaViv Boutique collections by category — dresses, accessories, and more.",
+    "Browse Viv La Viv Boutique collections by category — dresses, accessories, and more.",
 };
 
 import { getCategories, getPublishedCollectionItems } from "@/lib/queries";

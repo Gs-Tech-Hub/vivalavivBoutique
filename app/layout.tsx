@@ -32,8 +32,8 @@ const greatVibes = Great_Vibes({
 
 export const metadata = {
   title: {
-    default: "VivaLaViv Boutique",
-    template: "%s | VivaLaViv Boutique",
+    default: "Viv La Viv Boutique",
+    template: "%s | Viv La Viv Boutique",
   },
   description:
     "Curated fashion boutique with timeless elegance. Browse collections, find locations, and discover your next favorite piece.",

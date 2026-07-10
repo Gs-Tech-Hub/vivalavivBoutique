@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Brand from "@/components/ui/brand";
 import { auth, signOut } from "@/lib/auth";
 import AdminNav from "@/components/admin/admin-nav";
 
@@ -15,11 +16,9 @@ export default async function AdminLayout({
         <header className="border-b border-brand-border bg-brand-light/90 backdrop-blur-sm">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
             <div>
-              <Link
-                href="/admin"
-                className="font-heading text-lg font-light uppercase tracking-widest text-brand-charcoal"
-              >
-                VIV LA VIV Admin
+              <Link href="/admin" className="inline-flex items-center">
+                <Brand size="sm" />
+                <span className="ml-2 text-base font-light uppercase tracking-widest text-brand-charcoal">Admin</span>
               </Link>
               {session.user.email && (
                 <p className="text-xs text-brand-muted">{session.user.email}</p>

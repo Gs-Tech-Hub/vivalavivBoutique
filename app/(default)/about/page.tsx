@@ -1,9 +1,10 @@
 export const metadata = {
   title: "About",
   description:
-    "Learn about VivaLaViv Boutique — our story, values, and commitment to curated fashion.",
+    "Learn about Viv La Viv Boutique — our story, values, and commitment to curated fashion.",
 };
 
+import Brand from "@/components/ui/brand";
 import { aboutContent } from "@/lib/content/about";
 
 export default function AboutPage() {
@@ -20,7 +21,7 @@ export default function AboutPage() {
               className="font-heading text-4xl font-light uppercase tracking-widest text-brand-charcoal md:text-5xl"
               data-aos="fade-up"
             >
-              {aboutContent.title}
+              About <Brand size="md" />
             </h1>
             <p
               className="mt-6 text-lg leading-8 text-brand-muted"

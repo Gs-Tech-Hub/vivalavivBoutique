@@ -1,7 +1,7 @@
 "use client";
 
 export default function WhatsAppButton() {
-  const whatsappUrl = `https://wa.me/?text=Hi! I'd like to inquire about VivaLaViv Boutique collections and services.`;
+  const whatsappUrl = `https://wa.me/?text=Hi! I'd like to inquire about Viv La Viv Boutique collections and services.`;
 
   return (
     <a

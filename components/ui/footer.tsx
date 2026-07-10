@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Logo from "./logo";
+import Brand from "@/components/ui/brand";
 
 const footerLinks = [
   { href: "/", label: "Home" },
@@ -43,7 +44,7 @@ export default function Footer() {
 
         <div className="border-t border-brand-border py-6 text-sm text-brand-muted">
           <p>
-            © {new Date().getFullYear()} VivaLaViv Boutique. All rights reserved.
+            © {new Date().getFullYear()} <Brand size="sm" /> Boutique. All rights reserved.
           </p>
         </div>
       </div>

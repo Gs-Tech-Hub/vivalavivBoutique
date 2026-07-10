@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import HeroImage from "@/public/images/fashion-woman-leaning-on-car.jpg";
+import Brand from "@/components/ui/brand";
 
 export default function HeroHome() {
   return (
@@ -29,11 +30,11 @@ export default function HeroHome() {
       </span>
 
       <h1
-        className="mt-3 font-heading text-4xl font-light uppercase tracking-[0.18em] text-brand-charcoal md:text-5xl"
+        className="mt-3"
         data-aos="fade-up"
         data-aos-delay="100"
       >
-        VIV LA VIV
+        <Brand size="lg" />
       </h1>
 
       <div

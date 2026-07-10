@@ -1,9 +1,9 @@
 export const aboutContent = {
-  title: "About VivaLaViv Boutique",
+  title: "About",
   foundedDate: "2018",
   tagline: "Curated fashion with timeless elegance",
   story: [
-    "VivaLaViv Boutique was founded with a simple vision: to bring thoughtfully curated fashion to women who appreciate quality, craftsmanship, and individuality.",
+    "Viv La Viv Boutique was founded with a simple vision: to bring thoughtfully curated fashion to women who appreciate quality, craftsmanship, and individuality.",
     "What began as a small neighborhood shop has grown into a beloved destination with multiple locations, each offering a handpicked selection of apparel, accessories, and seasonal collections.",
     "Every piece in our boutique is chosen with care — blending classic sophistication with contemporary style, so you always feel confident and beautifully dressed.",
   ],
