@@ -5,12 +5,12 @@ import { getPublishedBranches } from "@/lib/queries";
 import { getImageUrl } from "@/lib/utils";
 
 export const metadata = {
-  title: "Vive La Viv — Luxury Flagship Boutique",
+  title: "Viv La Viv — Luxury Flagship Boutique",
   description:
     "VIV LA VIV luxury fashion boutique. Discover our flagship head office, collections, and boutique locations.",
 };
 
-export default async function Home2Page() {
+export default async function FlagShipPage() {
   const branches = await getPublishedBranches();
   const flagship =
     branches.find((branch) => /head|flagship/i.test(branch.name)) || branches[0];
@@ -81,7 +81,7 @@ export default async function Home2Page() {
 
           <div className="space-y-10">
             <div className="rounded-[2rem] border border-brand-border bg-brand-ivory/90 p-8 shadow-soft md:p-12">
-              <div className="space-y-6">
+              {/* <div className="space-y-6">
                 <div>
                   <p className="text-xs uppercase tracking-[0.35em] text-brand-primary">
                     {flagship?.address || "Benin City, Nigeria"}
@@ -95,7 +95,7 @@ export default async function Home2Page() {
                     ? `Find our flagship boutique at ${flagship.address}, where each visit is tailored to your personal style journey.`
                     : "Step inside an interior defined by marble veining, polished gold accents, and a carefully curated selection of luxury fashion."}
                 </p>
-              </div>
+              </div> */}
 
               {imageUrl ? (
                 <div className="mt-10 overflow-hidden rounded-[2rem] bg-brand-marble">

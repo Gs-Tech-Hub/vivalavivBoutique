@@ -1,7 +1,7 @@
-import Home2Page, { metadata as home2Metadata } from "./home2/page";
+import FlagShipPage, { metadata as flagshipMetadata } from "./flagship/page";
 
-export const metadata = home2Metadata;
+export const metadata = flagshipMetadata;
 
 export default function Home() {
-  return <Home2Page />;
+  return <FlagShipPage />;
 }
