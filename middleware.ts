@@ -1,21 +1,36 @@
-import { auth } from "@/lib/auth";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export default auth((req) => {
-  const isLoggedIn = !!req.auth;
-  const isAdminRoute = req.nextUrl.pathname.startsWith("/admin");
-  const isLoginPage = req.nextUrl.pathname === "/admin/login";
+const ADMIN_LOGIN = "/admin/login";
 
-  if (isAdminRoute && !isLoginPage && !isLoggedIn) {
-    return NextResponse.redirect(new URL("/admin/login", req.url));
+export default function middleware(req: NextRequest) {
+  const pathname = req.nextUrl.pathname;
+  const isAdminRoute = pathname.startsWith("/admin");
+  const isLoginPage = pathname === ADMIN_LOGIN;
+
+  const hasSessionCookie = !!(
+    req.cookies.get("__Secure-next-auth.session-token")?.value ||
+    req.cookies.get("next-auth.session-token")?.value
+  );
+
+  console.log("[middleware] admin route check", {
+    pathname,
+    isAdminRoute,
+    isLoginPage,
+    hasSessionCookie,
+  });
+
+  if (isAdminRoute && !isLoginPage && !hasSessionCookie) {
+    console.log("[middleware] redirecting unauthenticated admin request to login");
+    return NextResponse.redirect(new URL(ADMIN_LOGIN, req.url));
   }
 
-  if (isLoginPage && isLoggedIn) {
+  if (isLoginPage && hasSessionCookie) {
+    console.log("[middleware] redirecting logged-in user from login to admin");
     return NextResponse.redirect(new URL("/admin", req.url));
   }
 
   return NextResponse.next();
-});
+}
 
 export const config = {
   matcher: ["/admin", "/admin/:path*"],

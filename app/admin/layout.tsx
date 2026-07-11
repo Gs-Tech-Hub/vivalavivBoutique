@@ -9,6 +9,7 @@ export default async function AdminLayout({
   children: React.ReactNode;
 }) {
   const session = await auth();
+  console.log("[admin-layout] session check", { hasSession: Boolean(session), email: session?.user?.email });
 
   return (
     <div className="min-h-screen bg-brand-cream bg-marble">

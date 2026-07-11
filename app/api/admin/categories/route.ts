@@ -4,6 +4,8 @@ import { requireAdminSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { slugify } from "@/lib/utils";
 
+export const runtime = "nodejs";
+
 const createCategorySchema = z.object({
   name: z.string().trim().min(1, "Name is required"),
 });

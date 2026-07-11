@@ -3,6 +3,8 @@ import { requireAdminSession } from "@/lib/auth";
 import { deleteFileFromDrive, isDriveConfigured } from "@/lib/google-drive";
 import { prisma } from "@/lib/prisma";
 
+export const runtime = "nodejs";
+
 export async function DELETE(
   _request: Request,
   { params }: { params: Promise<{ id: string }> },

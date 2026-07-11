@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { requireAdminSession } from "@/lib/auth";
 import { isDriveConfigured, uploadFileToDrive } from "@/lib/google-drive";
 
+export const runtime = "nodejs";
+
 export async function POST(request: Request) {
   const session = await requireAdminSession();
   if (!session) {

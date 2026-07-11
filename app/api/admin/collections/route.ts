@@ -3,6 +3,8 @@ import { z } from "zod";
 import { requireAdminSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
+export const runtime = "nodejs";
+
 const createCollectionSchema = z.object({
   name: z.string().trim().min(1, "Name is required"),
   description: z.string().trim().optional(),
