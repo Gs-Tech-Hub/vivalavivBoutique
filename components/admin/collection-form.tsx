@@ -31,14 +31,38 @@ export default function CollectionForm({ categories }: { categories: Category[] 
       const formData = new FormData();
       formData.append("file", image);
 
-      const uploadResponse = await fetch("/api/admin/upload", {
-        method: "POST",
-        body: formData,
-      });
+      let uploadResponse: Response;
+      try {
+        uploadResponse = await fetch("/api/admin/upload", {
+          method: "POST",
+          body: formData,
+        });
+      } catch (fetchError) {
+        console.error("[client upload] fetch failed", fetchError);
+        setError(
+          fetchError instanceof Error
+            ? `Upload fetch failed: ${fetchError.message}`
+            : "Upload fetch failed",
+        );
+        setLoading(false);
+        return;
+      }
 
       if (!uploadResponse.ok) {
-        const data = await uploadResponse.json();
-        setError(data.error ?? "Failed to upload image");
+        let data: { error?: string } | null = null;
+        try {
+          data = await uploadResponse.json();
+        } catch (parseError) {
+          console.error("[client upload] invalid JSON response", parseError);
+        }
+
+        console.error("[client upload] server error", {
+          status: uploadResponse.status,
+          statusText: uploadResponse.statusText,
+          body: data,
+        });
+
+        setError(data?.error ?? `Failed to upload image (${uploadResponse.status})`);
         setLoading(false);
         return;
       }

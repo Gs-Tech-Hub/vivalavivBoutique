@@ -4,6 +4,11 @@ import {
   getFileStreamFromDrive,
   isDriveConfigured,
 } from "@/lib/google-drive";
+import {
+  getFileMetadataFromSupabase,
+  getFileStreamFromSupabase,
+  isSupabaseConfigured,
+} from "@/lib/supabase-storage";
 import { Readable } from "stream";
 
 export async function GET(
@@ -12,14 +17,18 @@ export async function GET(
 ) {
   const { fileId } = await params;
 
-  if (!isDriveConfigured()) {
+  if (!isDriveConfigured() && !isSupabaseConfigured()) {
     return NextResponse.json({ error: "Image service unavailable" }, { status: 503 });
   }
 
   try {
     const [metadata, stream] = await Promise.all([
-      getFileMetadataFromDrive(fileId),
-      getFileStreamFromDrive(fileId),
+      isSupabaseConfigured()
+        ? getFileMetadataFromSupabase(fileId)
+        : getFileMetadataFromDrive(fileId),
+      isSupabaseConfigured()
+        ? getFileStreamFromSupabase(fileId)
+        : getFileStreamFromDrive(fileId),
     ]);
 
     const webStream = Readable.toWeb(stream) as ReadableStream;

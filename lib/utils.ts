@@ -17,9 +17,12 @@ export function formatPrice(price: number | string | null | undefined) {
     return null;
   }
 
-  return new Intl.NumberFormat("en-US", {
+  // Format currency in Nigerian Naira with no decimal places
+  return new Intl.NumberFormat("en-NG", {
     style: "currency",
-    currency: "USD",
+    currency: "NGN",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
   }).format(amount);
 }
 
@@ -37,6 +40,14 @@ export function getImageUrl(fileId?: string | null) {
 
   if (fileId.startsWith("images/")) {
     return `/${fileId}`;
+  }
+
+  // If Supabase public storage is configured, prefer the direct public URL
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseBucket = process.env.NEXT_PUBLIC_SUPABASE_BUCKET;
+  if (supabaseUrl && supabaseBucket) {
+    const base = supabaseUrl.replace(/\/$/, "");
+    return `${base}/storage/v1/object/public/${supabaseBucket}/${fileId}`;
   }
 
   return `/api/images/${fileId}`;

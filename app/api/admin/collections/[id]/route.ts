@@ -1,6 +1,10 @@
 import { NextResponse } from "next/server";
 import { requireAdminSession } from "@/lib/auth";
 import { deleteFileFromDrive, isDriveConfigured } from "@/lib/google-drive";
+import {
+  deleteFileFromSupabase,
+  isSupabaseConfigured,
+} from "@/lib/supabase-storage";
 import { prisma } from "@/lib/prisma";
 
 export const runtime = "nodejs";
@@ -24,11 +28,15 @@ export async function DELETE(
 
     await prisma.collectionItem.delete({ where: { id } });
 
-    if (item.imageFileId && isDriveConfigured()) {
+    if (item.imageFileId && (isDriveConfigured() || isSupabaseConfigured())) {
       try {
-        await deleteFileFromDrive(item.imageFileId);
+        if (isSupabaseConfigured()) {
+          await deleteFileFromSupabase(item.imageFileId);
+        } else {
+          await deleteFileFromDrive(item.imageFileId);
+        }
       } catch {
-        // Item deleted from DB; Drive cleanup failure is non-fatal
+        // Item deleted from DB; storage cleanup failure is non-fatal
       }
     }
 
