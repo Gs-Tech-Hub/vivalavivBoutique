@@ -7,6 +7,11 @@ const nextConfig = {
         hostname: "localhost",
         pathname: "/api/images/**",
       },
+      {
+        protocol: "https",
+        hostname: "tkupsozxtmbpmqpcsiaf.supabase.co",
+        pathname: "/storage/v1/object/public/**",
+      },
     ],
   },
 };

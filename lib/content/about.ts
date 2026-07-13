@@ -1,6 +1,6 @@
 export const aboutContent = {
   title: "About",
-  foundedDate: "2018",
+  foundedDate: "2000",
   tagline: "Curated fashion with timeless elegance",
   story: [
     "Viv La Viv Boutique was founded with a simple vision: to bring thoughtfully curated fashion to women who appreciate quality, craftsmanship, and individuality.",

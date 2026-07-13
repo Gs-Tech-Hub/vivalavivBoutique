@@ -97,8 +97,8 @@ async function main() {
         sortOrder: 2,
       },
       {
-        name: "Viv La Viv Ugbowo",
-        address: "Ugbowo, Benin City, Edo State, Nigeria",
+        name: "Viv La Viv MarketSquare",
+        address: "MarketSquare, Benin City, Edo State, Nigeria",
         phone: "(312) 555-0167",
         email: "midtown@vivalaviv.com",
         latitude: 41.8947,
