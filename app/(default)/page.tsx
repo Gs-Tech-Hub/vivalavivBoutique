@@ -1,7 +1,11 @@
-import FlagShipPage, { metadata as flagshipMetadata } from "./flagship/page";
+import SinglePageHome from "@/components/single";
 
-export const metadata = flagshipMetadata;
+export const metadata = {
+  title: "Viv La Viv — Home",
+  description:
+    "Viv La Viv boutique — luxury fashion, flagship, locations, and collections.",
+};
 
-export default function Home() {
-  return <FlagShipPage />;
+export default async function Home() {
+  return <SinglePageHome />;
 }
