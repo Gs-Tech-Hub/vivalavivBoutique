@@ -150,8 +150,7 @@ async function main() {
         email: "vivlaviv13@gmail.com",
         latitude: 6.2990255,
         longitude: 5.6151112,
-        mapEmbedUrl:
-          "https://maps.google.com/maps?q=6.2990255,5.6151112&z=15&output=embed",
+        mapEmbedUrl: "https://maps.app.goo.gl/SdLbVq6EqdphvvXp8",
         imageFileId: "/images/head-office.jpeg",
         imageFileName: "head-office.jpeg",
         sortOrder: 1,
@@ -163,8 +162,7 @@ async function main() {
         email: "vivlaviv13@gmail.com",
         latitude: 6.3215168,
         longitude: 5.625856,
-        mapEmbedUrl:
-          "https://maps.google.com/maps?q=6.3215168,5.625856&z=15&output=embed",
+        mapEmbedUrl: "https://maps.app.goo.gl/N514NCE7EN8ThcF3A",
         imageFileId: "/images/shoprite.jpeg",
         imageFileName: "shoprite.jpeg",
         sortOrder: 2,
@@ -174,10 +172,9 @@ async function main() {
         address: "Market Square, Benin City, Edo State, Nigeria",
         phone: "+234 813 106 4022",
         email: "vivlaviv13@gmail.com",
-        latitude: 6.0878302,
-        longitude: 5.6642962,
-        mapEmbedUrl:
-          "https://maps.google.com/maps?q=6.0878302,5.6642962&z=15&output=embed",
+        latitude: 6.2675075,
+        longitude: 5.5808359,
+        mapEmbedUrl: "https://maps.app.goo.gl/sfCLNycYc5EFRRs4A",
         imageFileId: "/images/branch-shop.jpeg",
         imageFileName: "branch-shop.jpeg",
         sortOrder: 3,

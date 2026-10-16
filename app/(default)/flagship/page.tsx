@@ -17,6 +17,10 @@ export default async function FlagShipPage() {
   const imageUrl = flagship?.imageFileId
     ? getImageUrl(flagship.imageFileId)
     : null;
+  const mapEmbedUrl =
+    flagship?.latitude != null && flagship.longitude != null
+      ? `https://maps.google.com/maps?q=${flagship.latitude},${flagship.longitude}&z=15&output=embed`
+      : null;
 
   return (
     <div className="overflow-hidden bg-brand-ivory text-brand-charcoal">
@@ -151,7 +155,7 @@ export default async function FlagShipPage() {
 
                   <div className="flex flex-col gap-4 pt-2 sm:flex-row">
                     <a
-                      href={flagship?.latitude && flagship?.longitude ? `https://www.google.com/maps/search/?api=1&query=${flagship.latitude},${flagship.longitude}` : "https://www.google.com/maps"}
+                      href={flagship?.mapEmbedUrl ?? (flagship?.latitude != null && flagship.longitude != null ? `https://www.google.com/maps/search/?api=1&query=${flagship.latitude},${flagship.longitude}` : "https://www.google.com/maps")}
                       target="_blank"
                       rel="noreferrer"
                       className="inline-flex items-center justify-center rounded-full bg-brand-primary px-6 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-white transition hover:bg-[#8c151a]"
@@ -168,10 +172,10 @@ export default async function FlagShipPage() {
                 </div>
 
                 <div className="overflow-hidden rounded-[2rem] bg-brand-marble">
-                  {flagship?.mapEmbedUrl ? (
+                  {mapEmbedUrl ? (
                     <iframe
                       title={`Map for ${flagship.name}`}
-                      src={flagship.mapEmbedUrl}
+                      src={mapEmbedUrl}
                       className="h-full min-h-[320px] w-full border-0"
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
