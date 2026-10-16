@@ -117,56 +117,8 @@ async function main() {
     prisma.category.create({
       data: { name: "Accessories and Bags", slug: "accessories-and-bags" },
     }),
-    prisma.category.create({ data: { name: "Outerwear", slug: "outerwear" } }),
     prisma.category.create({ data: { name: "Kiddies", slug: "kiddies" } }),
   ]);
-
-  await prisma.collectionItem.createMany({
-    data: [
-      {
-        name: "Silk Evening Dress",
-        description: "Elegant floor-length silk dress in deep burgundy.",
-        categoryId: categories[0].id,
-        imageFileId: "/images/fashion-woman-leaning-on-car.jpg",
-        imageFileName: "fashion-woman-leaning-on-car.jpg",
-      },
-      {
-        name: "Floral Midi Dress",
-        description: "Lightweight midi dress with delicate floral print.",
-        categoryId: categories[0].id,
-        imageFileId: "/images/girl-in-yello.jpeg",
-        imageFileName: "girl-in-yello.jpeg",
-      },
-      {
-        name: "Gold Chain Necklace",
-        description: "Minimalist 18k gold-plated chain necklace.",
-        categoryId: categories[1].id,
-        imageFileId: "/images/fashion-collection-1.jpg",
-        imageFileName: "fashion-collection-1.jpg",
-      },
-      {
-        name: "Leather Crossbody Bag",
-        description: "Compact crossbody bag in soft tan leather.",
-        categoryId: categories[1].id,
-        imageFileId: "/images/fashion-collection-2.jpg",
-        imageFileName: "fashion-collection-2.jpg",
-      },
-      {
-        name: "Wool Blend Coat",
-        description: "Classic tailored coat in charcoal wool blend.",
-        categoryId: categories[2].id,
-        imageFileId: "/images/fashion-collection-3.jpg",
-        imageFileName: "fashion-collection-3.jpg",
-      },
-      {
-        name: "Cashmere Wrap",
-        description: "Luxuriously soft cashmere wrap in ivory.",
-        categoryId: categories[2].id,
-        imageFileId: "/images/fashion-collection-4.jpg",
-        imageFileName: "fashion-collection-4.jpg",
-      },
-    ],
-  });
 
   const categoryLookup = new Map(categories.map((category) => [category.name, category]));
   const importedInstagramItems = getInstagramSeedData().flatMap(({ category, urls }) => {
@@ -195,8 +147,8 @@ async function main() {
       {
         name: "Viv La Viv Head Office",
         address: "1st Ugbor, Benin City, Edo State, Nigeria",
-        phone: "(212) 555-0142",
-        email: "downtown@vivalaviv.com",
+        phone: "+234 813 106 4022",
+        email: "vivlaviv13@gmail.com",
         latitude: 40.7484,
         longitude: -73.9857,
         mapEmbedUrl:
@@ -208,8 +160,8 @@ async function main() {
       {
         name: "Viv La Viv Shoprite",
         address: "Edo Mall, Benin City, Edo State, Nigeria",
-        phone: "(310) 555-0198",
-        email: "westside@vivalaviv.com",
+        phone: "+234 813 106 4022",
+        email: "vivlaviv13@gmail.com",
         latitude: 34.0689,
         longitude: -118.4452,
         mapEmbedUrl:
@@ -221,8 +173,8 @@ async function main() {
       {
         name: "Viv La Viv MarketSquare",
         address: "MarketSquare, Benin City, Edo State, Nigeria",
-        phone: "(312) 555-0167",
-        email: "midtown@vivalaviv.com",
+        phone: "+234 813 106 4022",
+        email: "vivlaviv13@gmail.com",
         latitude: 41.8947,
         longitude: -87.6244,
         mapEmbedUrl:
@@ -237,25 +189,11 @@ async function main() {
   await prisma.review.createMany({
     data: [
       {
-        authorName: "Sarah M.",
-        rating: 5,
-        content:
-          "The staff helped me find the perfect dress for my anniversary dinner. Exceptional service and beautiful pieces!",
-        sortOrder: 1,
-      },
-      {
         authorName: "Jennifer L.",
         rating: 5,
         content:
           "Viva La Viv has become my go-to boutique. The quality of every item is outstanding and the styling advice is invaluable.",
         sortOrder: 2,
-      },
-      {
-        authorName: "Michelle R.",
-        rating: 4,
-        content:
-          "Love the curated selection! Found a gorgeous coat and accessories that I couldn't find anywhere else.",
-        sortOrder: 3,
       },
       {
         authorName: "Amanda K.",
@@ -274,7 +212,7 @@ async function main() {
     ],
   });
 
-  const adminEmail = process.env.ADMIN_EMAIL ?? "admin@vivalaviv.com";
+  const adminEmail = process.env.ADMIN_EMAIL ?? "admin@vivlavivboutique.com";
   const adminPassword = process.env.ADMIN_PASSWORD ?? "admin001";
   const hashed = await bcrypt.hash(adminPassword, 10);
 
