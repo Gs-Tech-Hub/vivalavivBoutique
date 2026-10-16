@@ -129,7 +129,6 @@ async function main() {
 
     return Array.from(new Set(urls)).map((url) => ({
       name: category,
-      description: `${category} Instagram collection reference`,
       categoryId: categoryRecord.id,
       imageFileId: null,
       imageFileName: null,
@@ -145,40 +144,40 @@ async function main() {
   await prisma.branch.createMany({
     data: [
       {
-        name: "Viv La Viv Head Office",
+        name: "VivLaViv Head Office",
         address: "1st Ugbor, Benin City, Edo State, Nigeria",
         phone: "+234 813 106 4022",
         email: "vivlaviv13@gmail.com",
-        latitude: 40.7484,
-        longitude: -73.9857,
+        latitude: 6.2990255,
+        longitude: 5.6151112,
         mapEmbedUrl:
-          "https://maps.google.com/maps?q=40.7484,-73.9857&z=15&output=embed",
+          "https://maps.google.com/maps?q=6.2990255,5.6151112&z=15&output=embed",
         imageFileId: "/images/head-office.jpeg",
         imageFileName: "head-office.jpeg",
         sortOrder: 1,
       },
       {
-        name: "Viv La Viv Shoprite",
+        name: "VivLaViv Shoprite",
         address: "Edo Mall, Benin City, Edo State, Nigeria",
         phone: "+234 813 106 4022",
         email: "vivlaviv13@gmail.com",
-        latitude: 34.0689,
-        longitude: -118.4452,
+        latitude: 6.3215168,
+        longitude: 5.625856,
         mapEmbedUrl:
-          "https://maps.google.com/maps?q=34.0689,-118.4452&z=15&output=embed",
+          "https://maps.google.com/maps?q=6.3215168,5.625856&z=15&output=embed",
         imageFileId: "/images/shoprite.jpeg",
         imageFileName: "shoprite.jpeg",
         sortOrder: 2,
       },
       {
-        name: "Viv La Viv MarketSquare",
-        address: "MarketSquare, Benin City, Edo State, Nigeria",
+        name: "VivLaViv Market Square",
+        address: "Market Square, Benin City, Edo State, Nigeria",
         phone: "+234 813 106 4022",
         email: "vivlaviv13@gmail.com",
-        latitude: 41.8947,
-        longitude: -87.6244,
+        latitude: 6.0878302,
+        longitude: 5.6642962,
         mapEmbedUrl:
-          "https://maps.google.com/maps?q=41.8947,-87.6244&z=15&output=embed",
+          "https://maps.google.com/maps?q=6.0878302,5.6642962&z=15&output=embed",
         imageFileId: "/images/branch-shop.jpeg",
         imageFileName: "branch-shop.jpeg",
         sortOrder: 3,

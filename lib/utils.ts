@@ -26,6 +26,22 @@ export function formatPrice(price: number | string | null | undefined) {
   }).format(amount);
 }
 
+export function getCollectionDescription(
+  description: string | null | undefined,
+  categoryName: string,
+) {
+  const normalizedDescription = description?.trim();
+  if (
+    !normalizedDescription ||
+    normalizedDescription.toLowerCase() ===
+      `${categoryName} instagram collection reference`.toLowerCase()
+  ) {
+    return null;
+  }
+
+  return normalizedDescription;
+}
+
 export function getImageUrl(fileId?: string | null) {
   if (!fileId) return null;
 

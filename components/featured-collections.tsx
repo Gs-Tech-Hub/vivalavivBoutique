@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getFeaturedCollections } from "@/lib/queries";
-import { formatPrice } from "@/lib/utils";
+import { formatPrice, getCollectionDescription } from "@/lib/utils";
 import CollectionMedia from "@/components/collection-media";
 
 export default async function FeaturedCollections() {
@@ -40,6 +40,11 @@ export default async function FeaturedCollections() {
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {items.map((item, index) => {
+              const description = getCollectionDescription(
+                item.description,
+                item.category.name,
+              );
+
               return (
                 <article
                   key={item.id}
@@ -62,9 +67,9 @@ export default async function FeaturedCollections() {
                     <h3 className="font-heading text-lg font-light uppercase tracking-wider text-brand-charcoal">
                       {item.name}
                     </h3>
-                    {item.description && (
+                    {description && (
                       <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-brand-muted">
-                        {item.description}
+                        {description}
                       </p>
                     )}
                     {formatPrice(item.price?.toString()) && (

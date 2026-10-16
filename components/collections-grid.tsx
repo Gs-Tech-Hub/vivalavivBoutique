@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { formatPrice } from "@/lib/utils";
+import { formatPrice, getCollectionDescription } from "@/lib/utils";
 import CollectionMedia from "@/components/collection-media";
 
 type Category = {
@@ -73,6 +73,11 @@ export default function CollectionsGrid({
       ) : (
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {filteredItems.map((item, index) => {
+            const description = getCollectionDescription(
+              item.description,
+              item.category.name,
+            );
+
             return (
               <article
                 key={item.id}
@@ -95,9 +100,9 @@ export default function CollectionsGrid({
                   <h2 className="font-heading text-lg font-light uppercase tracking-wider text-brand-charcoal">
                     {item.name}
                   </h2>
-                  {item.description && (
+                  {description && (
                     <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-brand-muted">
-                      {item.description}
+                      {description}
                     </p>
                   )}
                   {formatPrice(item.price) && (

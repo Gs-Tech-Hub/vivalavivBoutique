@@ -131,6 +131,24 @@ export default async function LocationsPage() {
                           </div>
 
                           <div className="overflow-hidden rounded-[2rem] bg-brand-marble">
+                            {branch.latitude !== null &&
+                            branch.latitude !== undefined &&
+                            branch.longitude !== null &&
+                            branch.longitude !== undefined ? (
+                              <div className="flex items-center justify-between gap-4 border-b border-brand-border bg-white px-6 py-4">
+                                <p className="text-xs uppercase tracking-[0.2em] text-brand-secondary">
+                                  Location map
+                                </p>
+                                <a
+                                  href={`https://www.google.com/maps/dir/?api=1&destination=${branch.latitude},${branch.longitude}`}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className="text-xs font-semibold uppercase tracking-[0.15em] text-brand-primary underline decoration-brand-primary/40 underline-offset-4 transition hover:text-brand-charcoal"
+                                >
+                                  Get directions
+                                </a>
+                              </div>
+                            ) : null}
                             {branch.mapEmbedUrl ? (
                               <iframe
                                 title={`Map for ${branch.name}`}
